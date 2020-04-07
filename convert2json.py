@@ -26,6 +26,7 @@ def kind_from_place(place):
 
 def get_data(url):
     r = requests.get(url)
+    r.encoding = "utf-8"
     return r.text
 
 
@@ -35,7 +36,6 @@ def csv_to_data(csv_data):
     regioni = {}
     province = {}
     for row in reader:
-        # FIXME
         place = row.pop("mortalità per provincia")
         kind = kind_from_place(place)
         if not kind:
