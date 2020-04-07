@@ -16,11 +16,8 @@ def get_data(url):
 
 def csv_to_data(csv_data):
     csv_file = io.StringIO(csv_data)
-    reader = csv.reader(csv_data)
-    for row in reader:
-        print(row)
-        break
-        yield row.decode
+    reader = csv.reader(csv_file, delimiter=",")
+    return reader
 
 
 def data_to_json(data):
