@@ -49,7 +49,7 @@ def csv_to_data(csv_data):
 
 
 def data_to_json(data):
-    return json.dumps(list(data))
+    return json.dumps(data)
 
 
 if __name__ == '__main__':
