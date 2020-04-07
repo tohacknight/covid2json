@@ -16,7 +16,7 @@ def get_data(url):
 
 def csv_to_data(csv_data):
     csv_file = io.StringIO(csv_data)
-    reader = csv.reader(csv_file, delimiter=",")
+    reader = csv.DictReader(csv_file, delimiter=",")
     return reader
 
 
