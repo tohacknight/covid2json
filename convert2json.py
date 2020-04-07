@@ -30,6 +30,28 @@ def get_data(url):
     return r.text
 
 
+def to_iso_date(date):
+    month_map = {
+        "gen": "01",
+        "feb": "02",
+        "mar": "03",
+        "apr": "04",
+        "mag": "05",
+        "giu": "06",
+        "lug": "07",
+        "ago": "08",
+        "set": "09",
+        "ott": "10",
+        "nov": "11",
+        "dic": "12",
+    }
+
+    day, month = date.split('-')
+    if len(day) == 1:
+        day = '0' + day
+    return "2020-{}-{}".format(month_map[month], day)
+
+
 def csv_to_data(csv_data):
     csv_file = io.StringIO(csv_data)
     reader = csv.DictReader(csv_file, delimiter=",")
@@ -37,6 +59,7 @@ def csv_to_data(csv_data):
     province = {}
     for row in reader:
         place = row.pop("mortalità per provincia")
+        row.pop("note")
         kind = kind_from_place(place)
         if not kind:
             continue
@@ -44,7 +67,7 @@ def csv_to_data(csv_data):
             regioni[place] = dict(province)
             province = {}
         elif kind == "provincia":
-            province[place] = row
+            province[place] = {to_iso_date(k): v for k,v in row.items()}
     return regioni
 
 
