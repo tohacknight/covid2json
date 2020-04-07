@@ -12,8 +12,8 @@ CSV_DATA = (
 
 def kind_from_place(place):
     """Sorry not sorry"""
-    if place == "fr (fuori_regione)":
-        return "fuori"
+    if place == "fr (fuori regione)":
+        return "provincia"
     elif len(place) == 2:
         return "provincia"
     elif place == "TOT ITALIA":
