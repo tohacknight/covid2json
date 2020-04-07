@@ -20,7 +20,7 @@ jobs:
     - name: Install dependencies
       run: pip install requests
     - name: Get and store data
-      run: python3 covid2json > data/mortalita_provincia.json
+      run: python3 convert2json.py > data/mortalita_provincia.json
     - name: Setup git
       run: git config user.name "${GITHUB_ACTOR}" && git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" 
     - name: Commit data
