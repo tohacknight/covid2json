@@ -24,4 +24,4 @@ jobs:
     - name: Setup git
       run: git config user.name "${GITHUB_ACTOR}" && git config user.email "${GITHUB_ACTOR}@users.noreply.github.com" 
     - name: Commit and push updated data
-      run: git add data/mortalita_provincia.json && git commit -m "$(date)" && gith push origin master || /bin/true
+      run: git add data/mortalita_provincia.json && git commit -m "$(date)" && git push origin master || /bin/true
