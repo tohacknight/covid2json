@@ -28,5 +28,10 @@ e ricorda di attivarlo quando vuoi chiamare lo script
 ## Uso
 
 ```
-$ python3 convert2json.py > mortalita_per_provincia.json
+python3 convert2json.py > mortalita_per_provincia.json
 ```
+
+## Dati
+
+I dati vengono archiviati in questo repository ogni 8 ore in `data/` perciò si possono anche
+prendere direttamente tramite la cdn di github.
