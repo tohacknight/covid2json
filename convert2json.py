@@ -67,7 +67,7 @@ def csv_to_data(csv_data):
             regioni[place] = dict(province)
             province = {}
         elif kind == "provincia":
-            province[place] = {to_iso_date(k): v for k,v in row.items()}
+            province[place] = {to_iso_date(k): v for k,v in row.items() if k}
     return regioni
 
 
